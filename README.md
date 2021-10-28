@@ -317,15 +317,14 @@ In order to fetch from the staging repository, replace https://repo.sourcify.dev
 
 ## Adding a new chain
 
-If you'd like to add a new chain support to Sourcify you can open a pull request to the **staging** branch with following:
+If you'd like to add a new chain support to Sourcify you can open a pull request to the **staging** branch. Before submitting make sure to follow the checklist in PR template.
 
-- Make sure the chain is listed in [chains.json](services/core/src/chains.json). This file is kept in sync with [chainlist.org](https://chainlist.org/chains.json) and should not be edited.
-
+- Make sure the chain is listed in [chains.json](services/core/src/chains.json). This file is kept in sync with [chainid.network/chains.json](https://chainid.network/chains.json) and should not be edited. If your network is not included, add your network by opening a PR to [ethereum-lists/chains](https://github.com/ethereum-lists/chains).
 - Add the chain details in [sourcify-chains.ts](services/core/src/sourcify-chains.ts) similar to other chains with `supported: true` and `monitored: false`.
-
 - Add the chain to the front-end in [constants.ts](ui/src/common/constants.ts)
-
+- Add your chain to "Supported Networks" in [README](/README.md)
 - Provide a test contract on the chain with address, source code, and metadata file in the pull request.
+- Add an introductory information about your network in the PR.
 
 # Contributing
 
