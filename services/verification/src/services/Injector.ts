@@ -178,8 +178,10 @@ export class Injector {
                 match = await this.compareBytecodes(
                     deployedBytecode, null, recompiled, chain, address
                 );
-            } catch (err) {
-                if (addresses.length === 1) {
+            } catch (err: any) {
+                if (err.message) {
+                    match.message = err.message;
+                } else {
                     match.message = "There were problems during contract verification. Please try again in a minute.";
                 }
             }
